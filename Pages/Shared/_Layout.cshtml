@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Gestión</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" asp-page="/Index">Gestión de clientes</a>
+            <nav aria-label="Navegación principal" class="main-nav">
+                <a asp-page="/Index">Inicio</a>
+                <a asp-page="/Clientes/Index">Clientes</a>
+                <a asp-page="/Telefonos/Index">Teléfonos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        @if (TempData["SuccessMessage"] is string successMessage)
+        {
+            <div class="alert alert-success" role="alert">@successMessage</div>
+        }
+        @if (TempData["ErrorMessage"] is string errorMessage)
+        {
+            <div class="alert alert-error" role="alert">@errorMessage</div>
+        }
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">Aplicación de gestión de clientes y teléfonos</div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

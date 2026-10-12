@@ -1,0 +1,43 @@
+@page
+@namespace Practica_1_web.Pages.Telefonos
+@model CreateModel
+@{
+    ViewData["Title"] = "Crear Teléfono";
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">Teléfonos</span>
+        <h1>Crear nuevo teléfono</h1>
+        <p>Completa los datos y asígnalos al cliente correspondiente.</p>
+    </div>
+</div>
+
+<form method="post" class="form-card">
+    <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+    <div class="form-group mb-3">
+        <label asp-for="TelefonoDto.Numero" class="form-label">Número telefónico</label>
+        <input asp-for="TelefonoDto.Numero" class="form-control" placeholder="8888-8888" required />
+        <span asp-validation-for="TelefonoDto.Numero" class="field-validation"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="TelefonoDto.Tipo" class="form-label">Tipo de teléfono</label>
+        <input asp-for="TelefonoDto.Tipo" class="form-control" placeholder="Celular, casa u oficina" />
+        <span asp-validation-for="TelefonoDto.Tipo" class="field-validation"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="TelefonoDto.ClienteId" class="form-label">Cliente</label>
+        <select asp-for="TelefonoDto.ClienteId" asp-items="Model.Clientes" class="form-control" required>
+            <option value="">Seleccione un cliente</option>
+        </select>
+        <span class="form-help">Seleccione uno de los clientes registrados.</span>
+        <span asp-validation-for="TelefonoDto.ClienteId" class="field-validation"></span>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="button button-primary">Guardar teléfono</button>
+        <a asp-page="Index" class="button button-outline">Cancelar</a>
+    </div>
+</form>

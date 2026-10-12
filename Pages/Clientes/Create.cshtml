@@ -1,0 +1,40 @@
+@page
+@namespace Practica_1_web.Pages.Clientes
+@model CreateModel
+@{
+    ViewData["Title"] = "Crear Cliente";
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">Clientes</span>
+        <h1>Crear nuevo cliente</h1>
+        <p>Completa los datos para registrar un cliente.</p>
+    </div>
+</div>
+
+<form method="post" class="form-card">
+    <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+    <div class="form-group mb-3">
+        <label asp-for="ClienteDto.Nombre" class="form-label">Nombre completo</label>
+        <input asp-for="ClienteDto.Nombre" class="form-control" required />
+        <span asp-validation-for="ClienteDto.Nombre" class="field-validation"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="ClienteDto.Email" class="form-label">Correo electrónico</label>
+        <input asp-for="ClienteDto.Email" type="email" class="form-control" />
+        <span asp-validation-for="ClienteDto.Email" class="field-validation"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="ClienteDto.Direccion" class="form-label">Dirección</label>
+        <input asp-for="ClienteDto.Direccion" class="form-control" />
+        <span asp-validation-for="ClienteDto.Direccion" class="field-validation"></span>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="button button-primary">Guardar cliente</button>
+        <a asp-page="Index" class="button button-outline">Cancelar</a>
+    </div>
+</form>

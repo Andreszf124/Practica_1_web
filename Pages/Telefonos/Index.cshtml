@@ -1,0 +1,44 @@
+@page
+@namespace Practica_1_web.Pages.Telefonos
+@model IndexModel
+@{
+    ViewData["Title"] = "Teléfonos";
+}
+
+<div class="page-heading page-heading-row">
+    <div>
+        <span class="eyebrow">Administración</span>
+        <h1>Gestión de teléfonos</h1>
+        <p>Consulta y administra los teléfonos registrados.</p>
+    </div>
+    <a asp-page="Create" class="button button-primary">Nuevo teléfono</a>
+</div>
+
+<div class="table-card">
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Cliente</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var telefono in Model.Telefonos)
+        {
+            <tr>
+                <td>@telefono.Id</td>
+                <td>@telefono.Numero</td>
+                <td>@telefono.Tipo</td>
+                <td>@telefono.ClienteId</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@telefono.Id" class="table-action">Editar</a>
+                    <a asp-page="Delete" asp-route-id="@telefono.Id" class="table-action table-action-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

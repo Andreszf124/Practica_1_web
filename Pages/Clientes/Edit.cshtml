@@ -1,0 +1,30 @@
+@page "{id}"
+@namespace Practica_1_web.Pages.Clientes
+@model EditModel
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<h1>Editar Cliente</h1>
+
+<form method="post">
+    <input type="hidden" name="clienteDto.Id" value="@Model.ClienteDto.Id" />
+
+    <div class="form-group mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" name="clienteDto.Nombre" class="form-control" value="@Model.ClienteDto.Nombre" required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" name="clienteDto.Email" class="form-control" value="@Model.ClienteDto.Email" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="direccion" class="form-label">Dirección:</label>
+        <input type="text" id="direccion" name="clienteDto.Direccion" class="form-control" value="@Model.ClienteDto.Direccion" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <a href="/Clientes" class="btn btn-secondary">Cancelar</a>
+</form>
